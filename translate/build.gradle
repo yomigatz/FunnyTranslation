@@ -5,27 +5,27 @@ plugins {
 }
 
 android {
-    signingConfigs {
-        release {
-            // 如果需要打release包，请在项目根目录下自行添加此文件
-            /**
-             *  STORE_FILE=yourAppStroe.keystore
-                STORE_PASSWORD=yourStorePwd
-                KEY_ALIAS=yourKeyAlias
-                KEY_PASSWORD=yourAliasPwd
-             */
-            def props = new Properties()
-            def propFile = new File("signing.properties")
-            BufferedReader reader = new BufferedReader(new InputStreamReader(
-                    new FileInputStream(propFile), "utf-8"))
-            props.load(reader)
-
-            storeFile file(props['STORE_FILE'])
-            storePassword props['STORE_PASSWORD']
-            keyAlias props['KEY_ALIAS']
-            keyPassword props['KEY_PASSWORD']
-        }
-    }
+//    signingConfigs {
+//        release {
+//            // 如果需要打release包，请在项目根目录下自行添加此文件
+//            /**
+//             *  STORE_FILE=yourAppStroe.keystore
+//                STORE_PASSWORD=yourStorePwd
+//                KEY_ALIAS=yourKeyAlias
+//                KEY_PASSWORD=yourAliasPwd
+//             */
+//            def props = new Properties()
+//            def propFile = new File("signing.properties")
+//            BufferedReader reader = new BufferedReader(new InputStreamReader(
+//                    new FileInputStream(propFile), "utf-8"))
+//            props.load(reader)
+//
+//            storeFile file(props['STORE_FILE'])
+//            storePassword props['STORE_PASSWORD']
+//            keyAlias props['KEY_ALIAS']
+//            keyPassword props['KEY_PASSWORD']
+//        }
+//    }
     compileSdkVersion Versions.compileSdkVersion
     buildToolsVersion Versions.buildToolsVersion
     configurations.all {
@@ -58,22 +58,22 @@ android {
 
 
     buildTypes {
-        release {
-            //临时可调式
-           // debuggable true
-            //开启代码混淆
-            minifyEnabled true
-            //Zipalign优化
-            zipAlignEnabled true
-            //移除无用的resource文件
-            shrinkResources true
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            signingConfig signingConfigs.release
-        }
+//        release {
+//            //临时可调式
+//           // debuggable true
+//            //开启代码混淆
+//            minifyEnabled true
+//            //Zipalign优化
+//            zipAlignEnabled true
+//            //移除无用的resource文件
+//            shrinkResources true
+//            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+//            signingConfig signingConfigs.release
+//        }
         debug {
             applicationIdSuffix ".debug"
             minifyEnabled false
-            signingConfig signingConfigs.release
+//            signingConfig signingConfigs.release
         }
 
     }
